@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Use Case Diagram ومكوناته وعلاقاته وملاحظات مهمة عند بنائه.">
+    <title>Use Case Diagram</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Use Case <span>Diagram</span></h1>
+            <p>مخطط حالات الاستخدام</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Behavioral Diagram</span>
+            </div>
+        </section>
+
+        <!-- 1. المقدمة -->
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>1. مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط حالات الاستخدام لتحديد المتطلبات الوظيفية
+                        للنظام وتوضيح التفاعل بين الجهات المتفاعلة (Actors)
+                        والنظام. غالبًا ما نبدأ به لتسهيل فهم متطلبات العميل
+                        وتحديد الوظائف التي يتوقعها من النظام قبل الانتقال
+                        إلى تفاصيل التصميم والتنفيذ.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. العناصر الأساسية -->
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>2. العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">رمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Actor</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-actor.png"
+                                        alt="Actor"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                يمثّل مستخدمًا أو نظامًا خارجيًا يتفاعل مع
+                                النظام لتحقيق هدف معين. يرتبط إما بـ Actor
+                                آخر عن طريق Generalization، أو بـ Use Case
+                                عن طريق Association.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Use Case</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-oval.png"
+                                        alt="Use Case"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تمثّل وظيفة أو خدمة يقدّمها النظام للجهة
+                                المتفاعلة، وتُرسم عادةً على شكل بيضاوي.
+                                ترتبط بحالات استخدام أخرى عن طريق
+                                Generalization أو Include أو Extend.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>System Boundary</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-boundary.png"
+                                        alt="System Boundary"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                يحدّد نطاق النظام؛ توضع حالات الاستخدام
+                                داخل حدوده، بينما تظهر الجهات المتفاعلة خارجه.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Association</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-association.png"
+                                        alt="Association Relationship"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                خط يوضّح وجود علاقة تفاعل بين Actor
+                                وUse Case.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Generalization</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-generalization.png"
+                                        alt="Generalization Relationship"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة تعميم وتخصيص يمكن أن تربط Actor
+                                بآخر، أو Use Case بأخرى.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Include Relationship</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-include.png"
+                                        alt="Include Relationship"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة توضّح تضمين سلوك حالة استخدام داخل
+                                حالة استخدام أخرى.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Extend Relationship</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/use-case-extend.png"
+                                        alt=Extend Relationship"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة توضّح إضافة سلوك اختياري أو مشروط
+                                إلى حالة استخدام أساسية.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- 3. ملاحظات مهمة -->
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>3. ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>البدء من متطلبات النظام</h3>
+                        <p>
+                            نحصل على سيناريو حالة الاستخدام
+                            (Use Case Scenario) من متطلبات النظام
+                            (System Requirements).
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تحديد الجهات المتفاعلة بدقة</h3>
+                        <p>
+                            إذا كانت قاعدة البيانات داخلية وجزءًا من النظام،
+                            فلا تُعرض باعتبارها Actor.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>ربط الفاعل بحالة الاستخدام</h3>
+                        <p>
+                            عادةً نربط الـ Actor بحالة الاستخدام الأساسية
+                            (Base Use Case)، وقد يرتبط في بعض الحالات
+                            بحالات استخدام مرتبطة بعلاقات Include أو Extend
+                            بحسب طبيعة التفاعل.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>اتجاه الأسهم في العلاقات</h3>
+
+                        
+                        <p>
+                            يوضع رأس السهم عند حالة الاستخدام التي تنفذ أولا.<br>
+                            يتجه سهم Include من حالة الاستخدام
+                            الأساسية إلى الحالة المضمّنة، بينما يتجه سهم
+                            Extendمن حالة الاستخدام الممتدّة إلى الحالة
+                            الأساسية.<br> اتجاه السهم يوضّح العلاقة، وليس
+                            بالضرورة ترتيبًا زمنيًا لتنفيذ حالات الاستخدام.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>التوسّع في التحليل عند الحاجة</h3>
+                        <p>
+                            يمكن إنشاء مخطط تسلسل (Sequence Diagram)
+                            ومخطط نشاط (Activity Diagram) لكل Use Case
+                            عند الحاجة إلى توضيح التفاعلات أو خطوات سير
+                            العمل بمزيد من التفصيل.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 4. مثال توضيحي -->
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>4. مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+
+                    <div class="diagram-visual">
+                        <img
+                            src="images/use-case-example.png"
+                            alt="مثال توضيحي لمخطط Use Case Diagram"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
