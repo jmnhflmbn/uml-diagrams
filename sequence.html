@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Sequence Diagram ومكوناته وعلاقاته وملاحظات مهمة عند بنائه.">
+    <title>Sequence Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Sequence <span>Diagram</span></h1>
+            <p>مخطط التسلسل</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Behavioral Diagram</span>
+                <span class="bubble">Interaction Diagram</span>
+            </div>
+        </section>
+
+        <!-- 1. المقدمة -->
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>1. مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط التسلسل لتوضيح التفاعلات بين الجهات
+                        والكائنات داخل النظام، مع إظهار ترتيب تبادل الرسائل
+                        بينها بمرور الوقت.<br>
+                        يساعد على فهم كيفية تنفيذ سيناريو محدد، وتحديد الرسائل
+                        التي يرسلها كل عنصر ويستقبلها أثناء تنفيذ العملية.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. العناصر الأساسية -->
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>العنصر</th>
+                            <th>الرمز</th>
+                            <th>الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Actor</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-actor.png"
+                                         alt="Actor"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                يمثّل مستخدمًا أو جهة خارجية تتفاعل مع النظام،
+                                ويمكن أن يبدأ التفاعل بإرسال رسالة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Class</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-class.png"
+                                        alt="Class"
+                                        class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                يمثّل فئة من الكائنات التي تشترك في الخصائص والعمليات نفسها.
+                                في مخطط التسلسل، يمكن أن يظهر اسم الـ Class لتوضيح نوع الكائن
+                                المشارك في التفاعل، مثل User أو AuthenticationService.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Lifeline</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-lifeline.png"
+                                         alt="Lifeline"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                خط رأسي متقطع يمثّل مشاركًا في التفاعل، مثل كائن
+                                أو نظام، ويُظهر استمراره خلال الزمن في المخطط.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Activation Bar</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-activation-bar.png"
+                                         alt="Activation Bar"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                مستطيل رفيع على الـ Lifeline يوضّح الفترة التي
+                                ينفّذ فيها المشارك عملية أو يكون فيها نشطًا.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-message.png"
+                                         alt="Message"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                سهم يوضّح إرسال رسالة من مشارك إلى آخر،
+                                ويُكتب عادةً اسم العملية أو الرسالة فوق السهم.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Synchronous Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-synchronous.png"
+                                         alt="Synchronous Message"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                رسالة متزامنة ينتظر مرسلها انتهاء العملية
+                                المستدعاة قبل متابعة التنفيذ. تُمثّل عادةً
+                                بسهم ذي رأس ممتلئ.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Asynchronous Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-asynchronous.png"
+                                         alt="Asynchronous Message"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                رسالة غير متزامنة لا يتطلب إرسالها انتظار
+                                اكتمال العملية لدى المستقبِل. تُمثّل عادةً
+                                بسهم ذي رأس مفتوح.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Return Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-return.png"
+                                         alt="Return Message"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                سهم يوضّح رجوع نتيجة أو استجابة إلى المرسل
+                                بعد تنفيذ العملية، ويُمثّل غالبًا بخط متقطع.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Create Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-create.png"
+                                         alt="Create Message"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                رسالة تُستخدم لإنشاء مشارك أو كائن جديد أثناء
+                                التفاعل، ويبدأ الـ Lifeline الخاص به عند نقطة
+                                إنشائه.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Destroy Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-destroy.png"
+                                         alt="Destroy Message"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                رسالة تشير إلى انتهاء عمر الكائن أثناء التفاعل،
+                                ويُمثّل انتهاء الـ Lifeline عادةً بعلامة X.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Combined Fragment</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-combined-fragment.png"
+                                         alt="Combined Fragment"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                إطار يُستخدم لتمثيل منطق التفاعل، مثل الشروط
+                                والتكرار والمسارات البديلة. وتُحدّد وظيفته
+                                بواسطة عامل التفاعل المكتوب داخل الإطار.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Guard Condition</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img src="images/sequence-guard.png"
+                                         alt="Guard Condition"
+                                         class="diagram-image">
+                                </div>
+                            </td>
+                            <td>
+                                شرط يُكتب بين أقواس مربعة، مثل
+                                [valid]، لتحديد متى يُنفّذ مسار
+                                أو تفاعل معين داخل المخطط.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Combined Fragments -->
+        <section class="section-container" id="fragments">
+            <div class="section-heading">
+                <h2>أنواع Combined Fragments</h2>
+                <p>
+                    تُستخدم لإظهار منطق التحكم في التفاعلات بين المشاركين،
+                    ويُكتب نوع الـ Fragment داخل الإطار.
+                </p>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>النوع</th>
+                            <th>الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>alt — Alternative</strong></td>
+                            <td>
+                                يُستخدم لتمثيل مسارات بديلة، بحيث يُنفّذ المسار
+                                الذي يتحقق شرطه. مثال: إذا كان الوصول مسموحًا،
+                                يُعرض المورد؛ وإذا رُفض الوصول، تظهر رسالة رفض.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>opt — Optional</strong></td>
+                            <td>
+                                يُستخدم لتمثيل تفاعل اختياري يُنفّذ فقط عند
+                                تحقق شرط محدد، ويمكن اعتباره حالة شرطية لمسار واحد.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>loop — Loop</strong></td>
+                            <td>
+                                يُستخدم لتمثيل تكرار مجموعة من الرسائل،
+                                ويمكن تحديد شرط التكرار أو عدد مرات التنفيذ.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>par — Parallel</strong></td>
+                            <td>
+                                يُستخدم لتمثيل تفاعلات يمكن تنفيذها بالتوازي
+                                بدلًا من تنفيذها بالتتابع.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>ref —  Reference</strong></td>
+                            <td>
+                                يُستخدم للإشارة إلى مخطط تفاعل آخر وإعادة
+                                استخدامه بدلًا من عرض جميع تفاصيله داخل
+                                المخطط الحالي.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>neg — Negative</strong></td>
+                            <td>
+                                يوضّح تفاعلًا غير مسموح به أو سلوكًا
+                                يُعد غير صحيح وفقًا للنموذج.
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Important Notes -->
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Start From Use Case Scenario</h3>
+                        <p>
+                            يمكن إنشاء Sequence Diagram لتوضيح كيفية تنفيذ
+                            سيناريو محدد من حالات الاستخدام، وتحويل خطوات
+                            السيناريو إلى رسائل متبادلة بين المشاركين.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>ترتيب الرسائل</h3>
+                        <p>
+                            يُقرأ المخطط من الأعلى إلى الأسفل ومن اليسار إلى اليمين؛ فالرسائل
+                            الموجودة في الأعلى تحدث قبل الرسائل الموجودة أسفلها.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تسمية الرسائل</h3>
+                        <p>
+                            يُفضّل كتابة اسم واضح لكل رسالة يعبّر عن العملية
+                            المطلوبة، مثل
+                            <code>requestAccess()</code> أو
+                            <code>validateUser()</code>، بدلًا من استخدام
+                            أسماء عامة غير واضحة.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>توضيح الشروط</h3>
+                        <p>
+                            عند وجود مسارات تعتمد على شروط، تُكتب
+                            Guard Conditions داخل Combined Fragments،
+                            مثل <code>[Access Granted]</code> و
+                            <code>[Access Denied]</code>.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Example -->
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/sequence-example.png"
+                            alt="example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
