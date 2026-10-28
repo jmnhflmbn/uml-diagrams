@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Activity Diagram وعناصره وملاحظات مهمة عند بنائه.">
+    <title>Activity Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Activity <span>Diagram</span></h1>
+            <p>مخطط النشاط</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Behavioral Diagram</span>
+            </div>
+        </section>
+
+        <!-- 1. المقدمة -->
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>1. مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط النشاط لتوضيح تسلسل الأنشطة والخطوات
+                        التي يمر بها النظام أو جزء من عملياته، مع إظهار
+                        نقاط اتخاذ القرار والمسارات المحتملة أثناء تنفيذ
+                        العملية. يساعد المخطط على فهم سير العمل
+                        (Workflow) من البداية إلى النهاية، بما في ذلك الأنشطة
+                        المتتابعة والمتوازية.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. العناصر الأساسية -->
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>2. العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">الرمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Initial Node</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-initial-node.png"
+                                        alt="Initial Node"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                يحدّد نقطة بداية سير العمل، ويُمثّل
+                                بدائرة سوداء ممتلئة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Activity</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-action.png"
+                                        alt="Action"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تمثّل خطوة أو إجراءً يتم تنفيذه ضمن
+                                سير العمل، ويُمثّل عادةً بمستطيل ذي
+                                زوايا مستديرة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Control Flow</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-control-flow.png"
+                                        alt="Control Flow"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                سهم يوضّح اتجاه الانتقال من نشاط إلى آخر.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Decision Node</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-decision-node.png"
+                                        alt="Decision Node"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                نقطة تُستخدم لاختيار مسار من عدة مسارات
+                                بناءً على شرط، وتُمثّل بشكل مُعيّن (Diamond).<br>
+                                يدخل إليها سهم واحد فقط
+                                ويخرج منها سهمان أو أكثر.<br>
+                                يُحدّد شرط كل مسار باستخدام
+                                Guard Condition.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Merge Node</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-merge-node.png"
+                                        alt="Merge Node"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تجمع مسارات بديلة متعددة في مسار واحد
+                                دون مزامنة تنفيذ متوازٍ.<br>
+                                يدخل إليها سهمان أو أكثر
+                                ويخرج منها سهم واحد فقط.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Fork Node</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-fork-node.png"
+                                        alt="Fork Node"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تقسّم مسارًا واحدًا إلى مسارات متوازية
+                                يمكن تنفيذها في الوقت نفسه.<br>
+                                يدخل إليها سهم واحد فقط
+                                ويخرج منها سهمان أو أكثر.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Join Node</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-join-node.png"
+                                        alt="Join Node"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تجمع مسارات متوازية وتزامنها قبل متابعة
+                                التنفيذ.<br>
+                                يدخل إليها سهمان أو أكثر
+                                ويخرج منها سهم واحد فقط.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Final Node</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-final-node.png"
+                                        alt="Final Node"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                يحدّد نهاية النشاط، ويُمثّل بدائرة سوداء
+                                ممتلئة تحيط بها دائرة خارجية.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Guard Condition</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-guard-condition.png"
+                                        alt="Guard Condition"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                شرط يُكتب عادةً بين أقواس مربعة على مسار
+                                خارج من Decision Node
+                                لتحديد متى يُتّبع ذلك المسار، مثل
+                                [Approved] أو [Rejected].
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Swimlanes</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/activity-swimlanes.png"
+                                        alt="Swimlanes"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تقسّم المخطط إلى مساحات توضّح الجهة
+                                أو المسؤول عن تنفيذ كل نشاط، مثل المستخدم
+                                أو النظام.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- 3. ملاحظات مهمة -->
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>3. ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>البدء من سيناريو الاستخدام</h3>
+                        <p>
+                            يمكن بناء Activity Diagram
+                            انطلاقًا من خطوات Use Case Scenario
+                            لتوضيح سير العملية بصورة مرئية.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تحديد البداية والنهاية</h3>
+                        <p>
+                            يجب توضيح نقطة بداية التدفق ونقاط نهايته
+                            بما يناسب العملية الممثّلة.  يمكن أن يحتوي المخطط على أكثر من نقطة نهاية إذا
+                            كانت هناك مسارات مختلفة تنتهي بشكل مستقل.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>توضيح القرارات</h3>
+                        <p>
+                            عند وجود أكثر من مسار محتمل، يُستخدم
+                            Decision Node مع كتابة شروط واضحة للمسارات، مثل
+                            [Approved] و[Rejected].
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Decision and Merge</h3>
+                        <p>
+                            يمكن استخدام Decision دون Merge لاحقًا،
+                            لكن إذا وجد Merge لابد من وجود Decision.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Fork and Join</h3>
+                        <p>
+                            يُستخدم Fork لتقسيم التدفق إلى أنشطة متوازية، بينما يُستخدم
+                            Join لمزامنة هذه الأنشطة قبل متابعة التدفق.<br>
+                            يمكن استخدام Fork دون Join إذا لم تكن هناك
+                            حاجة إلى مزامنة المسارات. أما عند الحاجة إلى
+                            مزامنة مسارات متوازية باستخدام
+                            Join، فيجب أن تكون
+                            هذه المسارات قد تفرّعت أو أصبحت متوازية
+                            في مرحلة سابقة.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تحديد المسؤوليات</h3>
+                        <p>
+                            يمكن استخدام Swimlanes
+                            لتوضيح الأنشطة التي ينفذها كل
+                            Actor أو مكوّن من مكوّنات النظام.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تجنّب تكرار الأنشطة</h3>
+                        <p>
+                            يُفضّل عدم تكرار النشاط نفسه في المخطط.
+                            إذا احتجنا إلى الإشارة إلى العملية ذاتها
+                            من مواضع متعددة، يمكن استخدام مرجع إلى النشاط
+                            بدلًا من إعادة رسمه.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Reference</h3>
+                        <p>
+                            إذا كان النشاط معقدًا أو يتكوّن من خطوات كثيرة،
+                            يمكن رسم تفاصيله في Activity Diagram
+                            منفصل، ثم كتابة اسم النشاط في المخطط الأساسي
+                            للإشارة إلى الرسم المنفصل بوصفه مرجعًا
+                            (Reference). بهذه الطريقة يبقى المخطط الأساسي واضحًا،
+                            مع إمكانية الرجوع إلى التفاصيل عند الحاجة.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 4. مثال توضيحي -->
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>4. مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/activity-example.png"
+                            alt="example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
