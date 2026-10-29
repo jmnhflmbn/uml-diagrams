@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح State Machine Diagram ومكوناته وطريقة كتابة الانتقالات وملاحظات مهمة عند بنائه.">
+    <title>State Machine Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>State Machine <span>Diagram</span></h1>
+            <p>مخطط آلة الحالات</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Behavioral Diagram</span>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط آلة الحالات لتوضيح الحالات (States) المختلفة
+                        التي يمر بها كائن أو نظام خلال دورة حياته، والانتقالات
+                        (Transitions) التي تحدث بينها استجابةً للأحداث (Events)
+                        أو عند تحقق شروط معينة.<br>
+                        يعتمد سلوك الكائن على حالته الحالية
+                        (Current State) والمدخلات (Inputs) التي يستقبلها؛ إذ تحدد
+                        الحالة الحالية والمدخلات كيفية استجابة الكائن وما إذا كان
+                        سينتقل إلى حالة أخرى.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">الرمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Initial State</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-initial.png"
+                                        alt="Initial State"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                نقطة بداية دورة حياة الكائن، وتُمثّل بدائرة سوداء ممتلئة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>State</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-state.png"
+                                        alt="State"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                حالة يكون فيها الكائن خلال فترة معينة، وتُمثّل عادةً
+                                بمستطيل ذي زوايا مستديرة. يمكن أن تحتوي على اسم الحالة،
+                                وقد تتضمن أنشطة داخلية. يُفضّل أن يُكتب اسم الحالة بصيغة
+                                تدل على حالة مستمرة، مثل Processing أو Waiting،
+                                أي بصيغة Gerund تنتهي عادةً بـ -ing.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Transition</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-transition.png"
+                                        alt="Transition"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                انتقال من حالة إلى أخرى، ويُمثّل بسهم يوضّح اتجاه الانتقال.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Event / Trigger</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-event.png"
+                                        alt="Event Trigger"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                حدث يؤدي إلى حدوث انتقال بين الحالات، ويُكتب عادةً على
+                                سهم الانتقال. يمكن أن يُكتب بصيغة الماضي المنتهية بـ -ed،
+                                مثل Submitted أو Approved.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Guard Condition</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-guard.png"
+                                        alt="Guard Condition"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                شرط يُكتب بين أقواس مربعة، مثل [balance &gt; 0]،
+                                ويحدد ما إذا كان الانتقال مسموحًا عند وقوع الحدث.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Action</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-action.png"
+                                        alt="Effect Action"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                إجراء يُنفّذ عند حدوث الانتقال، ويمكن كتابته بعد
+                                الرمز / على سهم الانتقال.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Entry Action</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-entry.png"
+                                        alt="Entry Action"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                إجراء يُنفّذ عند الدخول إلى حالة معينة، ويُكتب
+                                باستخدام entry / actionName.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Exit Action</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-exit.png"
+                                        alt="Exit Action"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                إجراء يُنفّذ عند مغادرة حالة معينة، ويُكتب
+                                باستخدام exit / actionName.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Do Activity</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-do.png"
+                                        alt="Do Activity"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                نشاط يستمر تنفيذه أثناء وجود الكائن في الحالة،
+                                ويُكتب باستخدام do / activityName.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Final State</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-final.png"
+                                        alt="Final State"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                نهاية دورة حياة الكائن في المخطط، وتُمثّل بدائرة
+                                سوداء ممتلئة تحيط بها دائرة خارجية.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Composite State</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-composite.png"
+                                        alt="Composite State"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                حالة مركّبة تحتوي على حالات فرعية، وتُستخدم
+                                لتمثيل سلوك أكثر تفصيلًا داخل حالة رئيسية.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>History State</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/state-machine-history.png"
+                                        alt="History State"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                نقطة تتيح العودة إلى الحالة الفرعية السابقة عند
+                                إعادة الدخول إلى حالة مركّبة، وتُمثّل بالرمز
+                                H أو H* داخل دائرة.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="section-container" id="transition">
+            <div class="section-heading">
+                <h2>كيفية كتابة Transition</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>يمكن كتابة الانتقال بالصيغة التالية:<br>
+
+                    <span dir="ltr"><code>eventName (parameters) [guardCondition] / actionName</code></span></p>
+
+                    <p>ويتكوّن التنسيق من الأجزاء التالية:<br>
+
+                        <strong>Event / Trigger:</strong>
+                        الحدث الذي يؤدي إلى محاولة الانتقال، مثل Submitted.<br>
+
+                        <strong>Parameters:</strong>
+                        المعاملات المرتبطة بالحدث، وتُكتب بين أقواس، مثل (userId)،
+                        عند الحاجة إليها.<br>
+
+                        <strong>Guard Condition:</strong>
+                        شرط اختياري يُكتب بين أقواس مربعة، مثل [valid].<br>
+
+                        <strong>Action:</strong>
+                        إجراء اختياري يُنفّذ عند حدوث الانتقال، مثل saveData().
+                    </p>
+
+                    <br><p>مثال:<br>
+
+                    <span dir="ltr"><code>Submitted (userId) [valid] / saveData()</code></span><br><br>
+                        يعني أن الانتقال يحدث عند وقوع الحدث Submitted مع المعامل
+                        userId، بشرط تحقق [valid]، ويُنفّذ الإجراء saveData().
+                    </p>
+
+                    <p>
+                        <br><strong>ملاحظة:</strong>
+                        المعاملات Parameters، والشرط Guard Condition، والإجراء
+                        Action جميعها اختيارية (Optional)، ويمكن حذفها عند
+                        عدم الحاجة إليها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>شروط حدوث الانتقال</h3>
+                        <p>
+                            يحدث الانتقال عندما يقع الحدث (Event) المحدد ويتحقق
+                            الشرط (Guard Condition)، إذا كان موجودًا. إذا لم
+                            يتحقق الشرط، فلا يُنفّذ الانتقال المرتبط به.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>أولوية الانتقالات داخل Composite State</h3>
+                        <p>
+                            إذا كان الكائن داخل Composite State، ووجدت انتقالات
+                            متعددة مرتبطة بالحدث نفسه في مستويات متداخلة، فتكون
+                            الأولوية للانتقال الأكثر داخلية (Innermost Transition)
+                            المؤهل للتنفيذ، قبل الانتقالات المعرّفة في الحالات الخارجية.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>مكان كتابة الإجراء وترتيب التنفيذ</h3>
+                        <p>
+                            يمكن كتابة الإجراء على سهم الانتقال باستخدام
+                            / actionName، أو داخل الحالة باستخدام entry أو exit.<br>
+                            يختلف توقيت التنفيذ وترتيبه حسب موضع الإجراء؛ فإجراء
+                            الانتقال يرتبط بحدوث الانتقال، بينما entry يُنفّذ عند
+                            الدخول إلى الحالة، وexit عند مغادرتها.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تنفيذ الأنشطة الداخلية</h3>
+                        <p>
+                            يمكن أن تتضمن الحالة Do Activity، وهو نشاط يستمر
+                            أثناء وجود الكائن في الحالة. وعند وجود أكثر من نشاط
+                            أو سلوك مستقل مطلوب تنفيذه بالتوازي، فلا يُفترض ترتيب
+                            تنفيذي ثابت بينها ما لم يحدده النموذج.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/state-machine-example.png"
+                            alt="example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
