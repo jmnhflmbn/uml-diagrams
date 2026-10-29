@@ -74,7 +74,7 @@
                             <td>
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/component-component.png"
+                                        src="images/component/component-structure.png"
                                         alt="Component"
                                         class="diagram-image"
                                     >
@@ -89,29 +89,12 @@
                         </tr>
 
                         <tr>
-                            <td><strong>Interface</strong></td>
-                            <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/component-interface.png"
-                                        alt="Interface"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
-                                واجهة تحدد الخدمات التي يوفّرها المكوّن أو
-                                الخدمات التي يحتاج إليها من مكوّن آخر.
-                            </td>
-                        </tr>
-
-                        <tr>
                             <td><strong>Provided Interface (Lollipop)</strong></td>
-                            <td>
+                            <td rowspan="2">
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/component-provided-interface.png"
-                                        alt="Provided Interface Lollipop"
+                                        src="images/component/component-interface.png"
+                                        alt="Component Interface"
                                         class="diagram-image"
                                     >
                                 </div>
@@ -125,15 +108,6 @@
                         <tr>
                             <td><strong>Required Interface (Socket)</strong></td>
                             <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/component-required-interface.png"
-                                        alt="Required Interface Socket"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
                                 واجهة يحتاج المكوّن إلى خدماتها من مكوّن آخر،
                                 ويُمثّل رمزها بنصف دائرة تُعرف باسم Socket.
                             </td>
@@ -144,7 +118,7 @@
                             <td>
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/component-port.png"
+                                        src="images/component/component-port.png"
                                         alt="Port"
                                         class="diagram-image"
                                     >
@@ -172,8 +146,9 @@
                     <thead>
                         <tr>
                             <th scope="col">العلاقة</th>
-                            <th scope="col">الرمز</th>
                             <th scope="col">الشرح</th>
+                            <th scope="col">الرمز</th>
+
                         </tr>
                     </thead>
 
@@ -181,31 +156,22 @@
                         <tr>
                             <td><strong>Dependency</strong></td>
                             <td>
+                                علاقة اعتماد توضّح أن أحد المكوّنات يعتمد
+                                على مكوّن آخر.
+                            </td>
+                            <td rowspan="3">
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/component-dependency.png"
-                                        alt="Dependency Relationship"
+                                        src="images/component/component-relationships.png"
+                                        alt="Component Relationships"
                                         class="diagram-image"
                                     >
                                 </div>
-                            </td>
-                            <td>
-                                علاقة اعتماد توضّح أن أحد المكوّنات يعتمد
-                                على مكوّن آخر.
                             </td>
                         </tr>
 
                         <tr>
                             <td><strong>Association</strong></td>
-                            <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/component-association.png"
-                                        alt="Association Relationship"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
                             <td>
                                 علاقة توضّح وجود ارتباط بين مكوّنين.
                             </td>
@@ -213,15 +179,6 @@
 
                         <tr>
                             <td><strong>Assembly Connector</strong></td>
-                            <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/component-assembly-connector.png"
-                                        alt="Assembly Connector"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
                             <td>
                                 رابط يصل الواجهة المطلوبة (Socket) بالواجهة
                                 المقدّمة (Lollipop)، ليوضّح أن المكوّن الذي
@@ -265,7 +222,7 @@
 
                         <div class="diagram-visual">
                             <img
-                                src="images/data-component.png"
+                                src="images/component/data-component.png"
                                 alt="Data Component"
                                 class="diagram-image"
                             >
@@ -282,14 +239,6 @@
                             مكوّنين يستخدمان لغتي برمجة مختلفتين، ويساعد
                             على تمكين التواصل بينهما.
                         </p>
-
-                        <div class="diagram-visual">
-                            <img
-                                src="images/middleware-component.png"
-                                alt="Middleware Component"
-                                class="diagram-image"
-                            >
-                        </div>
                     </div>
                 </article>
 
@@ -300,15 +249,8 @@
                         <p>
                             مكوّن يوفّر خدمة محددة يمكن لمكوّنات أخرى
                             استخدامها من خلال الواجهات.
+                            والـ Stereotype الخاصة بها هي «Component».
                         </p>
-
-                        <div class="diagram-visual">
-                            <img
-                                src="images/service-component.png"
-                                alt="Service Component"
-                                class="diagram-image"
-                            >
-                        </div>
                     </div>
                 </article>
 
@@ -324,7 +266,7 @@
 
                         <div class="diagram-visual">
                             <img
-                                src="images/user-interface-component.png"
+                                src="images/component/user-interface-component.png"
                                 alt="User Interface Component"
                                 class="diagram-image"
                             >
@@ -408,7 +350,7 @@
                 <div class="diagram-content">
                     <div class="diagram-visual">
                         <img
-                            src="images/component-example.png"
+                            src="images/component/component-example.png"
                             alt="example"
                             class="diagram-image"
                         >
