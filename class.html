@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Class Diagram ومكوناته وعلاقاته وملاحظات مهمة عند بنائه.">
+    <title>Class Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Class <span>Diagram</span></h1>
+            <p>مخطط الفئات</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Structural Diagram</span>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط الفئات لتوضيح البنية الثابتة للنظام،
+                        من خلال تمثيل الفئات (Classes) وخصائصها (Attributes)
+                        وعملياتها (Operations)، والعلاقات التي تربط بينها.
+                        يساعد المخطط على فهم الفئات الأساسية للنظام وكيفية
+                        ارتباطها ببعضها، ويُستخدم خلال مرحلة تحديد المتطلبات
+                        (Requirement Specification) وفقًا لتصنيف المراحل
+                        المعتمد في المشروع.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">رمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Class</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-class.png"
+                                        alt="Class"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تمثّل فئة تحدد الخصائص والعمليات المشتركة
+                                بين الكائنات التابعة لها. تُرسم عادةً على شكل
+                                مستطيل مقسّم إلى أقسام لاسم الفئة والخصائص والعمليات.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Attribute</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-attribute.png"
+                                        alt="Attribute"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تمثّل خاصية أو معلومة تصف الفئة،
+                                وتُكتب عادةً بالصيغة:<br> 
+                                <code>Visibility Attribute_Name: Type</code>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Operation / Method</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-operation.png"
+                                        alt="Operation or Method"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تمثّل عملية أو سلوكًا توفره الفئة،
+                                وتُكتب عادةً بالصيغة:<br>
+                                <code>Visibility Method_Name(Parameters): ReturnType</code>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Visibility</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-visibility.png"
+                                        alt="Visibility"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                تحدد مستوى إتاحة الخصائص والعمليات لـ الكلاس الخارجية.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Multiplicity</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-multiplicity.png"
+                                        alt="Multiplicity"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                توضّح عدد الكائنات التي يمكن أن تشارك في العلاقة.                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="section-container" id="relationships">
+            <div class="section-heading">
+                <h2>أنواع العلاقات بين الفئات</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العلاقة</th>
+                            <th scope="col">الرمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Association</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-association.png"
+                                        alt="Association"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة بنيوية توضّح وجود ارتباط بين فئتين.
+                                يمكن توضيح اتجاه العلاقة وأسماء الأدوار
+                                والتعددية عند الحاجة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Inheritance / Generalization</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-inheritance.png"
+                                        alt="Inheritance or Generalization"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة تعميم توضّح أن فئة فرعية ترث الخصائص
+                                والعمليات من فئة عامة، ويُمثّل الخط برأس
+                                مثلث مجوّف باتجاه الفئة العامة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Realization</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-realization.png"
+                                        alt="Realization"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة توضّح أن فئة تطبّق عقدًا أو واجهة
+                                (Interface)، ويُمثّل الخط المتقطع برأس
+                                مثلث مجوّف باتجاه الواجهة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Dependency</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-dependency.png"
+                                        alt="Dependency"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة اعتماد توضّح أن فئة تستخدم أو تعتمد
+                                على فئة أخرى، ويُمثّل عادةً بخط متقطع وسهم
+                                باتجاه الفئة التي يتم الاعتماد عليها.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Aggregation</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-aggregation.png"
+                                        alt="Aggregation"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة كل وجزء (Whole-Part) ضعيفة، حيث يمكن
+                                للجزء أن يستمر في الوجود بصورة مستقلة عن الكل.
+                                يُمثّل المعيّن المجوّف جهة الكل.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Composition</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/class-composition.png"
+                                        alt="Composition"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة كل وجزء (Whole-Part) قوية، يكون فيها
+                                عمر الجزء مرتبطًا بعمر الكل وفقًا لنموذج النظام.
+                                يُمثّل المعيّن الممتلئ جهة الكل.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>أسماء العلاقات</h3>
+                        <p>
+                            يُفضّل كتابة اسم واضح للعلاقة على الخط الذي
+                            يربط الفئتين، بحيث يعبّر عن طبيعة الارتباط بينهما.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>الوراثة</h3>
+                        <p>
+                            لا نضع Multiplicity على علاقة الوراثة،
+                            ولا نكتب اسمًا للعلاقة؛ لأن معنى التعميم
+                            والتخصيص محدد من خلال اتجاه المثلث ورأسه.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Whole-Part Relationship</h3>
+                        <p>
+                            في علاقتَي Aggregation وComposition، نكتب اسم
+                            العلاقة من الجهتين عند الحاجة إلى توضيح دور
+                            كل فئة في العلاقة، مثل اسم الكل واسم الجزء.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Aggregation & Composition</h3>
+                        <p>
+                            استخدم Composition عندما تكون علاقة الجزء بالكل
+                            قوية ومرتبطة بدورة حياته في النموذج،
+                            وAggregation عندما يكون الجزء مستقلًا عن الكل.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/class-example.png"
+                            alt="Example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
