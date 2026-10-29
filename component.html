@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Component Diagram ومكوناته وعلاقاته وأنواع المكونات وملاحظات مهمة عند بنائه.">
+    <title>Component Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Component <span>Diagram</span></h1>
+            <p>مخطط المكوّنات</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Structural Diagram</span>
+                <span class="bubble">Implementation Diagram</span>
+            </div>
+        </section>
+
+        <!-- المقدمة -->
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط المكوّنات لتوضيح البنية الداخلية للنظام
+                        من ناحية المكوّنات البرمجية (Components) والعلاقات
+                        بينها. يساعد المخطط على فهم كيفية تقسيم النظام إلى
+                        أجزاء، وكيفية تواصل هذه الأجزاء وتوفير الخدمات لبعضها
+                        من خلال الواجهات (Interfaces)، ويوضّح الاعتماد بين
+                        المكوّنات وطريقة اتصالها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- العناصر الأساسية -->
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">الرمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Component</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-component.png"
+                                        alt="Component"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                مكوّن برمجي يمثّل جزءًا من النظام ويوفّر وظيفة
+                                محددة، ويمكن أن يتفاعل مع مكوّنات أخرى. يُرسم
+                                عادةً على شكل مستطيل مع رمز المكوّن أو باستخدام
+                                التسمية «component».
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Interface</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-interface.png"
+                                        alt="Interface"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                واجهة تحدد الخدمات التي يوفّرها المكوّن أو
+                                الخدمات التي يحتاج إليها من مكوّن آخر.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Provided Interface (Lollipop)</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-provided-interface.png"
+                                        alt="Provided Interface Lollipop"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                واجهة يوفّر المكوّن خدماتها للمكوّنات الأخرى،
+                                ويُمثّل رمزها بدائرة صغيرة تُعرف باسم Lollipop.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Required Interface (Socket)</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-required-interface.png"
+                                        alt="Required Interface Socket"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                واجهة يحتاج المكوّن إلى خدماتها من مكوّن آخر،
+                                ويُمثّل رمزها بنصف دائرة تُعرف باسم Socket.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Port</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-port.png"
+                                        alt="Port"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                نقطة اتصال على حدود المكوّن توضّح مكان تفاعله
+                                مع البيئة الخارجية أو المكوّنات الأخرى.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- العلاقات بين المكونات -->
+        <section class="section-container" id="relationships">
+            <div class="section-heading">
+                <h2>أنواع العلاقات بين المكوّنات</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العلاقة</th>
+                            <th scope="col">الرمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Dependency</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-dependency.png"
+                                        alt="Dependency Relationship"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة اعتماد توضّح أن أحد المكوّنات يعتمد
+                                على مكوّن آخر.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Association</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-association.png"
+                                        alt="Association Relationship"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                علاقة توضّح وجود ارتباط بين مكوّنين.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Assembly Connector</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/component-assembly-connector.png"
+                                        alt="Assembly Connector"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                رابط يصل الواجهة المطلوبة (Socket) بالواجهة
+                                المقدّمة (Lollipop)، ليوضّح أن المكوّن الذي
+                                يحتاج إلى خدمة متصل بالمكوّن الذي يوفّرها.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        <strong>ملاحظة:</strong>
+                        غالبًا ما تُرسم علاقتا Dependency وAssociation في
+                        الرسم الأولي عندما لا يكون الاتصال الفعلي بين
+                        المكوّنات معروفًا بعد. أمّا العلاقة التي توضّح
+                        الاتصال الفعلي بين الواجهات، فهي Assembly Connector،
+                        الذي يربط الـ Socket بالـ Lollipop.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- أنواع المكونات -->
+        <section class="section-container" id="component-types">
+            <div class="section-heading">
+                <h2>أنواع الـ Component</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>1. Data Component</h3>
+
+                        <p>
+                            مكوّن مسؤول عن البيانات، مثل تخزينها أو إدارتها
+                            أو التعامل معها.
+                        </p>
+
+                        <div class="diagram-visual">
+                            <img
+                                src="images/data-component.png"
+                                alt="Data Component"
+                                class="diagram-image"
+                            >
+                        </div>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>2. Middleware Component</h3>
+
+                        <p>
+                            مكوّن وسيط يعمل بوصفه مترجمًا أو حلقة وصل بين
+                            مكوّنين يستخدمان لغتي برمجة مختلفتين، ويساعد
+                            على تمكين التواصل بينهما.
+                        </p>
+
+                        <div class="diagram-visual">
+                            <img
+                                src="images/middleware-component.png"
+                                alt="Middleware Component"
+                                class="diagram-image"
+                            >
+                        </div>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>3. Service Component</h3>
+
+                        <p>
+                            مكوّن يوفّر خدمة محددة يمكن لمكوّنات أخرى
+                            استخدامها من خلال الواجهات.
+                        </p>
+
+                        <div class="diagram-visual">
+                            <img
+                                src="images/service-component.png"
+                                alt="Service Component"
+                                class="diagram-image"
+                            >
+                        </div>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>4. User Interface Component</h3>
+
+                        <p>
+                            مكوّن مسؤول عن واجهة المستخدم، أي الجزء الذي
+                            يتفاعل معه المستخدم. في هذا التصنيف، يمثّل
+                            الواجهة فقط ولا يحتوي على Lollipop.
+                        </p>
+
+                        <div class="diagram-visual">
+                            <img
+                                src="images/user-interface-component.png"
+                                alt="User Interface Component"
+                                class="diagram-image"
+                            >
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ملاحظات مهمة -->
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>اختلاف طريقة الرسم حسب المنهجية (Methodology)</h3>
+
+                        <p>
+                            عند استخدام Agile، يُرسم المخطط اعتمادًا على
+                            متطلبات المستخدم (User Requirements) والخبرة.
+                            أمّا عند استخدام Waterfall، فيُرسم اعتمادًا على
+                            Class Diagram؛ إذ تتحول الوظائف (Functions)
+                            إلى Lollipops. كذلك، تُرسم الـ Classes داخل
+                            الـ Component وتُربط بكل Lollipop يوفّرها المكوّن.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تسمية Port</h3>
+
+                        <p>
+                            يمكن أن يرتبط الـ Port بأكثر من Lollipop.
+                            إذا ارتبط بأكثر من واجهة، نضع اسمًا للـ Port
+                            لتوضيح نقطة الاتصال.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Lollipop غير متصل بـ Socket</h3>
+
+                        <p>
+                            يمكن وجود Lollipop دون اتصال بـ Socket؛ لأن
+                            الخدمة التي يوفّرها المكوّن قد تُستخدم في
+                            برنامج آخر.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Socket غير متصل بـ Lollipop</h3>
+
+                        <p>
+                            يجب ألّا يوجد Socket دون اتصال بـ Lollipop؛
+                            لأن ذلك يعني أن المكوّن يحتاج إلى خدمة غير
+                            موفّرة أو غير مرتبطة بمصدر يقدّمها، وبالتالي
+                            يكون البرنامج ناقصًا من ناحية هذا الاعتماد.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- المثال التوضيحي -->
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/component-example.png"
+                            alt="example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
