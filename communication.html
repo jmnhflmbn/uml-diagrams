@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Communication Diagram ومكوناته وطريقة كتابة الرسائل ومقارنته بمخطط التسلسل.">
+    <title>Communication Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Communication <span>Diagram</span></h1>
+            <p>مخطط التواصل</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Behavioral Diagram</span>
+                <span class="bubble">Interaction Diagram</span>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط التواصل لتوضيح التفاعلات بين الكائنات أو
+                        الجهات المشاركة في تنفيذ سيناريو معين، مع التركيز على
+                        الروابط بينها والرسائل المتبادلة. ويُستخدم ترقيم الرسائل
+                        لتوضيح ترتيب تنفيذها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">رمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Actor</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-actor.png"
+                                        alt="Actor"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                يمثّل مستخدمًا أو جهة خارجية تتفاعل مع النظام،
+                                وقد يبدأ إرسال الرسائل أو يستقبلها.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Class</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-class.png"
+                                        alt="Class"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                يمثّل الصنف الذي يحدد خصائص الكائنات وسلوكها،
+                                ويُكتب اسمه داخل مستطيل يمثل المشارك في التفاعل.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Link</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-link.png"
+                                        alt="Link"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                خط يوضح وجود اتصال بين المشاركين، ويُرسم بين
+                                المشاركين الذين يتبادلون الرسائل.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-message.png"
+                                        alt="Message"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                سهم يوضح رسالة تُرسل من مشارك إلى آخر عبر رابط
+                                بينهما، ويُكتب اسم الرسالة فوق السهم.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Sequence Number</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-sequence-number.png"
+                                        alt="Sequence Number"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                رقم يوضح ترتيب الرسالة ضمن التفاعل،
+                                مثل 1 و1.1 و1.2.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Guard Condition</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-guard-condition.png"
+                                        alt="Guard Condition"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                شرط يُكتب بين أقواس مربعة، مثل [valid]،
+                                لتحديد متى تُرسل الرسالة أو يُنفّذ التفاعل.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Iteration</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-iteration.png"
+                                        alt="Iteration"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                ترميز يوضح تكرار إرسال رسالة، ويُستخدم عند
+                                الحاجة إلى تمثيل تكرار التفاعل.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Self Message</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/communication-self-message.png"
+                                        alt="Self Message"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                رسالة يرسلها المشارك إلى نفسه لتمثيل عملية
+                                داخلية أو استدعاء داخلي.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="section-container" id="message-format">
+            <div class="section-heading">
+                <h2>كيفية كتابة الـ Message</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>تُكتب الرسالة بالصيغة التالية:<br>
+
+                    <span dir="ltr"><code>1.2 : [condition] function(parameters): returnValue</code></span>
+
+                    <br><br>ويتكوّن التنسيق من الأجزاء التالية:</p>
+
+                    <div class="diagram-content">
+                        <p><strong>Sequence Number:</strong>
+                            رقم الرسالة الذي يوضح ترتيبها، مثل 1.2.
+
+                        <br><strong>Colon (:):</strong>
+                            يفصل رقم الرسالة عن بقية تفاصيلها.
+
+                        <br><strong>Guard Condition:</strong>
+                            شرط اختياري يُكتب بين أقواس مربعة، مثل [valid].
+
+                        <br><strong>Function:</strong>
+                            اسم العملية أو الدالة التي تُستدعى.
+
+                        <br><strong>Parameters:</strong>
+                            المعاملات التي تُمرّر إلى الدالة بين الأقواس.
+
+                        <br><strong>Return Value:</strong>
+                            القيمة التي تعيدها الدالة، عند الحاجة إلى توضيحها.
+                        </p>
+                    </div>
+
+                    <p>
+                        <strong>ملاحظة:</strong>
+                        الشرط condition، والمعاملات parameters، والقيمة المرجعة
+                        returnValue عناصر اختيارية (Optional)، ويمكن حذفها
+                        عند عدم الحاجة إليها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- المقارنة مع Sequence Diagram -->
+        <section class="section-container" id="comparison">
+            <div class="section-heading">
+                <h2>مقارنة بين Sequence Diagram وCommunication Diagram</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">وجه المقارنة</th>
+                            <th scope="col">Sequence Diagram</th>
+                            <th scope="col">Communication Diagram</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>التركيز الأساسي</strong></td>
+                            <td>
+                                يركّز على الترتيب الزمني للرسائل والتفاعلات
+                                بين المشاركين.
+                            </td>
+                            <td>
+                                يركّز على الروابط بين المشاركين والرسائل
+                                المتبادلة بينهم.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>طريقة عرض الترتيب</strong></td>
+                            <td>
+                                يُوضّح ترتيب الرسائل من الأعلى إلى الأسفل.
+                            </td>
+                            <td>
+                                يُوضّح ترتيب الرسائل باستخدام أرقام التسلسل.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>تمثيل المشاركين</strong></td>
+                            <td>
+                                يظهر كل مشارك مع Lifeline رأسي يوضّح امتداده
+                                خلال التفاعل.
+                            </td>
+                            <td>
+                                يظهر المشاركون مرتبطين ببعضهم عن طريق Links.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>عرض الرسائل</strong></td>
+                            <td>
+                                تُرسم الرسائل بين خطوط المشاركين، ويُوضّح
+                                ترتيبها مكانيًا من الأعلى إلى الأسفل.
+                            </td>
+                            <td>
+                                تُرسم الرسائل على الروابط بين المشاركين،
+                                ويُوضّح ترتيبها باستخدام الترقيم.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>إظهار الروابط</strong></td>
+                            <td>
+                                لا يكون التركيز على رسم الروابط المستقلة
+                                بين المشاركين.
+                            </td>
+                            <td>
+                                تُعد الروابط بين المشاركين عنصرًا أساسيًا
+                                في المخطط.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>التعامل مع التفاعلات المتفرعة</strong></td>
+                            <td>
+                                يمكن استخدام Combined Fragments مثل
+                                alt وopt وloop.
+                            </td>
+                            <td>
+                                يمكن توضيح التفاعلات المشروطة باستخدام
+                                شروط الرسائل وترقيمها.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>أنواع الرسائل</strong></td>
+                            <td colspan="2">
+                                Synchronous Message،
+                                Asynchronous Message،
+                                Return Message.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        <strong>ملاحظة:</strong>
+                        يمكن استخدام Sequence Diagram أو Communication Diagram
+                        لتمثيل التفاعل نفسه؛ فكلاهما يوضّح جوانب مختلفة من التفاعل.
+                        لذلك، عادةً نختار أحدهما وفقًا للجانب الذي نريد التركيز عليه،
+                        ولا نحتاج إلى رسم الاثنين معًا لتمثيل التفاعل نفسه.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>ترقيم الرسائل</h3>
+                        <p>
+                            استخدم أرقامًا واضحة لتوضيح ترتيب تنفيذ الرسائل،
+                            مثل 1 و1.1 و1.2 عند وجود رسائل متداخلة
+                            أو استدعاءات فرعية.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>الرسائل البديلة</h3>
+                        <p>
+                            إذا كان هناك مساران بديلان، مثل نجاح العملية أو فشلها،
+                            فيمكن استخدام نفس رقم التسلسل للرسالتين البديلتين
+                            مع إضافة شرط لكل رسالة لتمييز المسار الذي يُنفّذ.
+                        </p>
+
+                        <p><code>2 : [valid] grantAccess()</code><br>
+                        <code>2 : [invalid] showError()</code></p>
+
+                        <p>
+                            في هذا المثال، تحمل الرسالتان الرقم نفسه لأنهما
+                            تمثلان مسارين بديلين في الموضع نفسه من التفاعل،
+                            بينما تحدد الشروط المسار الذي يُنفّذ.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>الروابط بين المشاركين</h3>
+                        <p>
+                            يجب رسم Link لكل رسالة، حتى لو كانت الرسائل متبادلة
+                            بين المشاركين نفسيهما.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>رسائل الإرجاع</h3>
+                        <p>
+                            لا تحتاج Return Message إلى رقم تسلسل مستقل 
+                            لأنها توضّح قيمة.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تسمية الرسائل</h3>
+                        <p>
+                            استخدم أسماء واضحة تعبّر عن العملية،
+                            مثل requestLogin() وvalidateCredentials().
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/communication-example.png"
+                            alt="Example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
