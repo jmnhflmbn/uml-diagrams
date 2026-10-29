@@ -67,10 +67,10 @@
                     <tbody>
                         <tr>
                             <td><strong>Class</strong></td>
-                            <td>
+                            <td rowspan="3">
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/class-class.png"
+                                        src="images/class/class-structure.png"
                                         alt="Class"
                                         class="diagram-image"
                                     >
@@ -86,15 +86,6 @@
                         <tr>
                             <td><strong>Attribute</strong></td>
                             <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-attribute.png"
-                                        alt="Attribute"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
                                 تمثّل خاصية أو معلومة تصف الفئة،
                                 وتُكتب عادةً بالصيغة:<br> 
                                 <code>Visibility Attribute_Name: Type</code>
@@ -103,15 +94,6 @@
 
                         <tr>
                             <td><strong>Operation / Method</strong></td>
-                            <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-operation.png"
-                                        alt="Operation or Method"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
                             <td>
                                 تمثّل عملية أو سلوكًا توفره الفئة،
                                 وتُكتب عادةً بالصيغة:<br>
@@ -124,7 +106,7 @@
                             <td>
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/class-visibility.png"
+                                        src="images/class/class-visibility.png"
                                         alt="Visibility"
                                         class="diagram-image"
                                     >
@@ -140,7 +122,7 @@
                             <td>
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/class-multiplicity.png"
+                                        src="images/class/class-multiplicity.png"
                                         alt="Multiplicity"
                                         class="diagram-image"
                                     >
@@ -174,32 +156,24 @@
                         <tr>
                             <td><strong>Association</strong></td>
                             <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-association.png"
-                                        alt="Association"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
                                 علاقة بنيوية توضّح وجود ارتباط بين فئتين.
                                 يمكن توضيح اتجاه العلاقة وأسماء الأدوار
                                 والتعددية عند الحاجة.
                             </td>
-                        </tr>
-
-                        <tr>
-                            <td><strong>Inheritance / Generalization</strong></td>
-                            <td>
+                            <td rowspan="6">
                                 <div class="uml-symbol">
                                     <img
-                                        src="images/class-inheritance.png"
-                                        alt="Inheritance or Generalization"
+                                        src="images/class/class-relationships.png"
+                                        alt="class-relationships"
                                         class="diagram-image"
                                     >
                                 </div>
                             </td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td><strong>Inheritance / Generalization</strong></td>
                             <td>
                                 علاقة تعميم توضّح أن فئة فرعية ترث الخصائص
                                 والعمليات من فئة عامة، ويُمثّل الخط برأس
@@ -210,15 +184,6 @@
                         <tr>
                             <td><strong>Realization</strong></td>
                             <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-realization.png"
-                                        alt="Realization"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
                                 علاقة توضّح أن فئة تطبّق عقدًا أو واجهة
                                 (Interface)، ويُمثّل الخط المتقطع برأس
                                 مثلث مجوّف باتجاه الواجهة.
@@ -227,15 +192,6 @@
 
                         <tr>
                             <td><strong>Dependency</strong></td>
-                            <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-dependency.png"
-                                        alt="Dependency"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
                             <td>
                                 علاقة اعتماد توضّح أن فئة تستخدم أو تعتمد
                                 على فئة أخرى، ويُمثّل عادةً بخط متقطع وسهم
@@ -246,15 +202,6 @@
                         <tr>
                             <td><strong>Aggregation</strong></td>
                             <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-aggregation.png"
-                                        alt="Aggregation"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
                                 علاقة كل وجزء (Whole-Part) ضعيفة، حيث يمكن
                                 للجزء أن يستمر في الوجود بصورة مستقلة عن الكل.
                                 يُمثّل المعيّن المجوّف جهة الكل.
@@ -264,15 +211,6 @@
                         <tr>
                             <td><strong>Composition</strong></td>
                             <td>
-                                <div class="uml-symbol">
-                                    <img
-                                        src="images/class-composition.png"
-                                        alt="Composition"
-                                        class="diagram-image"
-                                    >
-                                </div>
-                            </td>
-                            <td>
                                 علاقة كل وجزء (Whole-Part) قوية، يكون فيها
                                 عمر الجزء مرتبطًا بعمر الكل وفقًا لنموذج النظام.
                                 يُمثّل المعيّن الممتلئ جهة الكل.
@@ -280,6 +218,7 @@
                         </tr>
                     </tbody>
                 </table>
+
             </div>
 
         </section>
@@ -346,7 +285,7 @@
                 <div class="diagram-content">
                     <div class="diagram-visual">
                         <img
-                            src="images/class-example.png"
+                            src="images/class/class-example.png"
                             alt="Example"
                             class="diagram-image"
                         >
