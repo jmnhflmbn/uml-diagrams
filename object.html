@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح Object Diagram ومكوناته والفرق بينه وبين Class Diagram وملاحظات مهمة عند بنائه.">
+    <title>Object Diagram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+
+        <nav class="navigation" aria-label="التنقل الرئيسي">
+            <a href="uml.html#diagrams">المخططات</a>
+            <a href="uml.html#about">عني</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- عنوان الصفحة -->
+        <section class="hero" id="introduction">
+            <h1>Object <span>Diagram</span></h1>
+            <p>مخطط الكائنات</p>
+
+            <div class="bubble-list">
+                <span class="bubble">Structural Diagram</span>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <div class="section-heading">
+                <h2>مقدمة</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        يُستخدم مخطط الكائنات لتوضيح البنية الفعلية للكائنات
+                        (Objects) في لحظة زمنية محددة، من خلال عرض الكائنات
+                        الموجودة وخصائصها (Attribute Values) والعلاقات التي
+                        تربط بينها. يُعد المخطط لقطة (Snapshot) لحالة النظام
+                        في وقت معين، ويساعد على فهم كيفية تمثيل الفئات
+                        (Classes) في صورة كائنات فعلية وكيفية ارتباط هذه
+                        الكائنات ببعضها.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="elements">
+            <div class="section-heading">
+                <h2>العناصر الأساسية للمخطط</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">العنصر</th>
+                            <th scope="col">الرمز</th>
+                            <th scope="col">الشرح</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Object</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/object-object.png"
+                                        alt="Object"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                كائن يمثّل نسخة فعلية من فئة، ويُكتب اسمه عادةً
+                                بالصيغة التالية مع وضع خط أسفل الاسم: 
+                                <u><code>objectName:ClassName</code></u>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Attribute Values</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/object-attribute-values.png"
+                                        alt="Attribute Values"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                القيم الفعلية لخصائص الكائن في لحظة محددة،
+                                وتُكتب داخل مستطيل الكائن أسفل اسمه، مثل
+                                <code>age = 20</code>.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Link</strong></td>
+                            <td>
+                                <div class="uml-symbol">
+                                    <img
+                                        src="images/object-link.png"
+                                        alt="Link"
+                                        class="diagram-image"
+                                    >
+                                </div>
+                            </td>
+                            <td>
+                                خط يوضّح وجود علاقة بين كائنين، ويُمثّل عادةً
+                                بخط متصل، ويعبّر عن علاقة فعلية بين نسخ الفئات
+                                المرتبطة.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="section-container" id="comparison">
+            <div class="section-heading">
+                <h2>الفرق بين Class Diagram وObject Diagram</h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">وجه المقارنة</th>
+                            <th scope="col">Class Diagram</th>
+                            <th scope="col">Object Diagram</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>الهدف</strong></td>
+                            <td>
+                                يوضّح البنية العامة للفئات والعلاقات بينها.
+                            </td>
+                            <td>
+                                يوضّح الكائنات الفعلية والعلاقات بينها في لحظة محددة.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>البيانات</strong></td>
+                            <td>
+                                يوضّح أسماء الخصائص وأنواع بياناتها.
+                            </td>
+                            <td>
+                                يوضّح القيم الفعلية للخصائص.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>المنظور الزمني</strong></td>
+                            <td>
+                                لا يرتبط بلحظة زمنية محددة.
+                            </td>
+                            <td>
+                                يمثّل Snapshot لحالة الكائنات في وقت معين.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>الاستخدام</strong></td>
+                            <td>
+                                يساعد على تصميم بنية النظام.
+                            </td>
+                            <td>
+                                يساعد على فهم مثال فعلي لبنية الكائنات
+                                والعلاقات بينها.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <p>
+                        <strong>ملاحظة:</strong>
+                        يرتبط Object Diagram عادةً بـ Class Diagram؛ إذ تُنشأ
+                        الكائنات وفقًا للفئات المعرّفة فيه، وتُعرض القيم والروابط
+                        الفعلية التي توضّح حالة معينة من النظام.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="notes">
+            <div class="section-heading">
+                <h2>ملاحظات مهمة عند بناء المخطط</h2>
+            </div>
+
+            <div class="diagram-grid">
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>Visibility</h3>
+                        <p>
+                            لا نحتاج إلى وضع Visibility في Object Diagram؛
+                            لأنها موضّحة في Class Diagram.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>تمثيل الوراثة</h3>
+                        <p>
+                            عند تمثيل الوراثة، نمثّل كلاسات الأبناء فقط ولا
+                            نمثّل كلاس الأب، ونضع Attributes الخاصة بكلاس الأب
+                            ضمن كلاس الابن.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="diagram-card">
+                    <div class="diagram-content">
+                        <h3>اختيار الكائنات المطلوبة</h3>
+                        <p>
+                            نرسم الـ Objects للكلاسات المشاركة في التفاعل فقط.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section-container" id="example">
+            <div class="section-heading">
+                <h2>مثال توضيحي</h2>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-content">
+                    <div class="diagram-visual">
+                        <img
+                            src="images/object-example.png"
+                            alt="example"
+                            class="diagram-image"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="uml.html" class="logo">UML<span>Guide</span></a>
+        <p>دليل تعليمي لمخططات UML</p>
+    </footer>
+
+</body>
+</html>
