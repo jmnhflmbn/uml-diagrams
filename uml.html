@@ -70,6 +70,20 @@
                 <p>اختر أي مخطط للتعرّف على هدفه وعناصره الأساسية.</p>
             </div>
 
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <input
+                        type="search"
+                        id="diagramSearch"
+                        placeholder="ابحثي عن مخطط UML..."
+                        aria-label="البحث عن مخططات UML"
+                    >
+                    <span class="search-icon">⌕</span>
+                </div>
+                <p id="searchMessage"></p>
+            </section>
+
             <div class="diagram-grid">
 
                 <article class="diagram-card" id="use-case">
@@ -219,5 +233,6 @@
         <p>دليل تعليمي لمخططات UML</p>
     </footer>
 
+    <script src="search.js"></script>
 </body>
 </html>
